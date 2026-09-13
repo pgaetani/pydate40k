@@ -1,6 +1,6 @@
 [project]
 name = "pydate40k"
-version = "0.2.0"
+version = "0.1.0"
 description = "Convert a real-world date into a Warhammer 40,000 Imperial Dating System string."
 readme = "README.md"
 requires-python = ">=3.8"
