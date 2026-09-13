@@ -1,0 +1,82 @@
+[project]
+name = "pydate40k"
+version = "0.2.0"
+description = "Convert a real-world date into a Warhammer 40,000 Imperial Dating System string."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "WTFPL"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Pier Gaetani", email = "pier.gaetani@gmail.com" },
+]
+keywords = ["warhammer", "warhammer40k", "imperial-dating-system", "date"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: OS Independent",
+    "Topic :: Games/Entertainment",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/pgaetani/pydate40k"
+Repository = "https://github.com/pgaetani/pydate40k"
+Issues = "https://github.com/pgaetani/pydate40k/issues"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "hypothesis>=6.112",
+    "ruff>=0.7",
+    "mypy>=1.11",
+]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "N", "C4"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pydate40k"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+files = ["src", "tests"]
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers --strict-config --cov=pydate40k --cov-report=term-missing --cov-report=xml"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["pydate40k"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
