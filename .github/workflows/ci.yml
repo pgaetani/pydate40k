@@ -17,7 +17,7 @@ jobs:
       - uses: astral-sh/setup-uv@v10.1.0
         with:
           enable-cache: true
-      - run: uv sync --locked
+      - run: uv sync
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run mypy
@@ -35,5 +35,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
-      - run: uv sync --locked
+      - run: uv sync
       - run: uv run pytest
