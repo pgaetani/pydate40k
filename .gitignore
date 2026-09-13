@@ -69,7 +69,10 @@ docs/_build/
 target/
 
 # pyenv
-.python-version
+# (kept for uv: .python-version is intentionally tracked, not ignored)
+
+# uv / venvs
+.venv/
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
